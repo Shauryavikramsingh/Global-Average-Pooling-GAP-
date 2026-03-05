@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAP Flex | Neural Efficiency Protocol</title>
+    <style>
+        :root {
+            --neon-green: #00ffaa;
+            --cobalt: #1e293b;
+            --electric-blue: #00d2ff;
+            --dark: #020617;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: #cbd5e1;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container { max-width: 900px; width: 100%; }
+
+        .protocol-header {
+            border-left: 5px solid var(--neon-green);
+            padding-left: 20px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 2.5rem;
+            margin: 0;
+            letter-spacing: -1px;
+        }
+
+        .status-tag {
+            color: var(--neon-green);
+            font-family: monospace;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .card {
+            background: var(--cobalt);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::after {
+            content: "80% PARAMETER REDUCTION";
+            position: absolute;
+            top: 20px; right: -40px;
+            background: var(--neon-green);
+            color: #000;
+            font-weight: 800;
+            font-size: 0.7rem;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+        }
+
+        h2 { color: var(--electric-blue); margin-top: 30px; }
+
+        .theory-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .theory-item {
+            background: rgba(0,0,0,0.2);
+            padding: 20px;
+            border-radius: 12px;
+            border-top: 2px solid var(--electric-blue);
+        }
+
+        .code-block {
+            background: #000;
+            padding: 20px;
+            border-radius: 12px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            color: #86efac;
+            position: relative;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 15px; right: 15px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            padding: 5px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.7rem;
+        }
+
+        .footer-note {
+            margin-top: 30px;
+            font-size: 0.8rem;
+            color: #64748b;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="protocol-header">
+        <span class="status-tag">Protocol 05 // Efficiency Layer</span>
+        <h1>The GAP Flex</h1>
+    </div>
+
+    <div class="card">
+        <h2>1. The Theoretical Shift</h2>
+        <p>In standard Deep Learning, researchers use <code>Flatten()</code> layers to connect 1D/2D convolutions to the final output. This is <strong>Brute Force</strong>. It creates millions of unnecessary connections, leading to massive file sizes and overfitting.</p>
+        
+        <div class="theory-grid">
+            <div class="theory-item">
+                <strong>Legacy: Flatten()</strong>
+                <p style="font-size: 0.85rem;">Maps every single pixel/timestep to every neuron. High RAM usage, low spatial understanding.</p>
+            </div>
+            <div class="theory-item">
+                <strong>Prana: GAP</strong>
+                <p style="font-size: 0.85rem;">Computes the <em>Average</em> of each feature map. 0 parameters, high spatial resilience.</p>
+            </div>
+        </div>
+
+        
+
+        <h2>2. Why this is "Rare"</h2>
+        <p>Most AI models built by students require high-end GPUs. By implementing the <strong>GAP Protocol</strong>, we reduce the "Weight" of the AI, allowing it to function as an <strong>Independent Node</strong> on legacy systems like the Intel i5-6300U.</p>
+
+        <h2>3. Implementation</h2>
+        <div class="code-block">
+            <button class="copy-btn" onclick="copyCode()">COPY</button>
+            <pre id="code">
+# --- PRANA AI: GAP EFFICIENCY PROTOCOL ---
+# Replaces Flatten() for Hardware-Agnostic AI
+
+from tensorflow.keras import layers
+
+def build_gap_model():
+    model = Sequential()
+    model.add(layers.Conv1D(64, 3, activation='relu'))
+    
+    # The Parameter Killer:
+    # Shrinks 3D Tensor to 1D via Spatial Averaging
+    model.add(layers.GlobalAveragePooling1D()) 
+    
+    model.add(layers.Dense(5, activation='softmax'))
+    return model</pre>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        Decentralized. Accuracy-driven. Asset-managed. Prana AI 2026.
+    </div>
+</div>
+
+<script>
+    function copyCode() {
+        const text = document.getElementById('code').innerText;
+        navigator.clipboard.writeText(text);
+        alert("GAP Protocol Copied!");
+    }
+</script>
+
+</body>
+</html>
